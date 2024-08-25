@@ -1,15 +1,15 @@
 import java.util.Map;
 
-public class Carro {
+public class CarroFlex {
 
     private String modelo;
     private Motor motor;
     private TanqueCombustivel tanque;
 
-    public Carro(String modelo, TipoCombustivel tipoCombustivel, int consumoMotor, int capacidadeTanque) {
+    public CarroFlex(String modelo, TipoCombustivel tipoCombustivel, Map<TipoCombustivel,Integer> consumoMotor, int capacidadeTanque) {
         this.modelo = modelo;
-        motor = new Motor(tipoCombustivel, consumoMotor);
-        tanque = new TanqueCombustivel(tipoCombustivel, capacidadeTanque);
+        motor = new Motor(tipoCombustivel, consumoMotor.get(tipoCombustivel));
+        tanque = new TanqueCombustivel(TipoCombustivel.FLEX, capacidadeTanque);
     }
     
     public String getModelo() {

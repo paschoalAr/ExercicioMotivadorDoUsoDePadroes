@@ -1,3 +1,6 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class App {
     public static void main(String[] args) throws Exception {
 
@@ -51,12 +54,31 @@ public class App {
 
         System.out.println("\n\n----------------");
         System.out.println("\nAbastencendo carro basico com gasolina");
-        suv.abastece(TipoCombustivel.GASOLINA, 55);
+        suv.abastece(TipoCombustivel.FLEX, 55);
         System.out.println(suv);
         System.out.println("\nViajando com o carro basico");
         suv.viaja(250);
         suv.viaja(150);
         System.out.println(suv);
+
+        Map<TipoCombustivel, Integer> consumo = new HashMap<>();
+        consumo.put(TipoCombustivel.FLEXALCOOL, 6);
+        consumo.put(TipoCombustivel.FLEXGASOLINA, 8);
+
+        CarroFlex suvFlex = new CarroFlex("Suv Flex", TipoCombustivel.FLEXGASOLINA, consumo , 65);
+
+        System.out.println("\nTipos de veiculos:");
+        System.out.println(suvFlex);
+
+        System.out.println("\n\n----------------");
+        System.out.println("\nAbastencendo carro basico com gasolina");
+        suvFlex.abastece(TipoCombustivel.FLEXGASOLINA, 55);
+        System.out.println(suvFlex);
+        System.out.println("\nViajando com o carro basico");
+        suvFlex.viaja(250);
+        suvFlex.viaja(150);
+        System.out.println(suvFlex);
+
 
     }
 }
