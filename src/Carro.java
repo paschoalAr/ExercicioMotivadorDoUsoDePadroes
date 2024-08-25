@@ -1,5 +1,3 @@
-import java.util.Map;
-
 public class Carro {
 
     private String modelo;
@@ -43,7 +41,15 @@ public class Carro {
     }
 
     // Retorna true se conseguiu viajar
+    int tetoKm = 5000;
     public boolean viaja(int distancia) {
+        System.out.println(modelo + " " + motor.getQuilometragem() +" " + motor.getConsumo());
+        if (modelo.equals("Econo") && motor.getQuilometragem() >= tetoKm){
+            if (motor.getConsumo() > 10){
+                motor.setConsumo(motor.getConsumo() -1);
+                tetoKm += 5000;
+            }
+        }
         if (verificaSePodeViajar(distancia) >= distancia) {
             motor.percorre(distancia);
             tanque.gasta(motor.combustivelNecessario(distancia));
